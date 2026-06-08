@@ -106,16 +106,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     
       // This only adjusts the first homepage view on desktop/computer screens.
-      // It will not affect phones.
-      if (window.innerWidth > 980) {
-        const desktopHomeStart = 55;
-    
-        requestAnimationFrame(() => {
-          window.scrollTo({
-            top: desktopHomeStart,
-            behavior: "auto"
-          });
-        });
-      }
+// It uses the same positioning as clicking the Home link.
+if (window.innerWidth > 980) {
+  const homeSection = document.querySelector("#home");
+
+  if (homeSection) {
+    requestAnimationFrame(() => scrollToSection(homeSection, false));
+  }
+}
     });
   });
